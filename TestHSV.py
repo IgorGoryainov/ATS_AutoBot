@@ -1,10 +1,13 @@
 import cv2 as cv
 import numpy as np
 
+def nothing(x):
+    pass
 
 def getMousePosInWin_SV(event, x, y, flags, param):
     global SV_BGR_image
     if event == cv.EVENT_LBUTTONDOWN:
+        img = cv.cvtColor(SV_BGR_image, cv.COLOR_BGR2HLS)
         print('SV vs S: HSV =', img[y][x], '  BGR =', SV_BGR_image[y][x])
 
 def getMousePosInWin_HV(event, x, y, flags, param):
